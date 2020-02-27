@@ -1,13 +1,18 @@
 package life.xiaoyang.community.community.controller;
 ;
+import life.xiaoyang.community.community.bean.User;
 import life.xiaoyang.community.community.dto.AccessTokenDTO;
 import life.xiaoyang.community.community.dto.GIthubUser;
+import life.xiaoyang.community.community.mapper.UserMapper;
 import life.xiaoyang.community.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 @Controller
 public class AuthorizeController {
@@ -19,12 +24,16 @@ public class AuthorizeController {
     private String client_id;
     @Value("${github.client.secret}")
     private String client_secret;
-    @Value("github.client.uri")
+    @Value("${github.client.uri}")
     private String client_uri;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code")String code,
-                           @RequestParam(name = "state")String state)
+                           @RequestParam(name = "state")String state,
+                           HttpServletRequest request)
     {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setCode(code);
@@ -33,9 +42,23 @@ public class AuthorizeController {
         accessTokenDTO.setClient_id(client_id);
         accessTokenDTO.setClient_secret(client_secret);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
-        GIthubUser user = githubProvider.getUser(accessToken);
-        System.out.println(user.getName());
-        return "index";
+        GIthubUser gIthubUser = githubProvider.getUser(accessToken);
+        if(gIthubUser == null)
+        {
+            return "redirect:index.html";
+        }else
+        {
+            User user = new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setAccountId(gIthubUser.getId()+"");
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            user.setName(gIthubUser.getName());
+            userMapper.insertUser(user);
+
+            request.getSession().setAttribute("user",gIthubUser);
+            return "redirect:index.html";
+        }
     }
 
 }
