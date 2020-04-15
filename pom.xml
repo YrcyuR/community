@@ -8,6 +8,7 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+<<<<<<< HEAD
 	<groupId>life.xiaoyang.community</groupId>
 	<artifactId>community</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -17,10 +18,21 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
+=======
+	<groupId>life.xyang.community</groupId>
+	<artifactId>community</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>community</name>
+	<description>community</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+>>>>>>> 11804650fe5cd22a9eade6b83ebeb782cc7b5646
 	</properties>
 
 	<dependencies>
 
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,6 +83,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+=======
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+>>>>>>> 11804650fe5cd22a9eade6b83ebeb782cc7b5646
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
@@ -85,6 +107,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -128,6 +151,16 @@
 				</dependencies>
 			</plugin>
 
+=======
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+>>>>>>> 11804650fe5cd22a9eade6b83ebeb782cc7b5646
 		</plugins>
 	</build>
 
