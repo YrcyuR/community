@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.xiaoyang.community.dao.QuestionMapper">
+  <resultMap id="BaseResultMap" type="life.xiaoyang.community.bean.Question">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="life.xiaoyang.community.bean.Question">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, 
+    tag
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <resultMap id="BaseResultMap" type="life.xiaoyang.community.bean.Question">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="life.xiaoyang.community.bean.Question">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, 
+    tag
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <resultMap id="BaseResultMap" type="life.xiaoyang.community.bean.Question">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="life.xiaoyang.community.bean.Question">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, 
+    tag
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <resultMap id="BaseResultMap" type="life.xiaoyang.community.bean.Question">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="life.xiaoyang.community.bean.Question">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, 
+    tag
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>

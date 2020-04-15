@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>发布 - 小杨社区</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="/jquery-form/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+    <script src="/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/jquery-form/jquery-form.min.js"></script>
+    <script src="/jquery-form/jquery.form.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/community.css">
+
+</head>
+<body class="body">
+
+<nav th:replace="~{common/topMenu :: topMenu}"></nav>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
+            <h2><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"> 发起 </span></h2>
+            <hr/>
+            <form th:action="@{/publish}" action="/publish" method="post">
+                <input type="hidden" name="id" th:value="${id}">
+                <div class="form-group">
+                    <label for="title">问题标题(简单扼要)</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题...." th:value="${title!=null}?${title}">
+                </div>
+                <div class="form-group">
+                    <label for="description">问题补充(必填，可参考右侧提示)</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" th:text="${description!=null}?${description}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag">添加标签</label>
+                    <input type="text" class="form-control" id="tag" name="tag" placeholder="输入标签,以，号分割" th:value="${tag!=null}?${tag}">
+                </div>
+
+                <div class="container-fluid main">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12" th:if="${error !=null }" th:text="${error}"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish">发布</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>发起问题指南</h3>
+            问题标题：       <br>
+            问题补充：       <br>
+            选择标签：标签用，隔开     <br>
+        </div>
+    </div>
+</div>
+</body>
+</html>
